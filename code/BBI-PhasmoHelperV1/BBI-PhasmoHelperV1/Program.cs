@@ -20,7 +20,7 @@ namespace BBI_PhasmoHelperV1
             StartUpMenu startup = new StartUpMenu();
             Application.Run(startup);
 
-            if (startup.Mode == StartUpMenu.startMode.Server)
+            if (startup.Mode == StartUpMenu.StartMode.Server)
             {
                 if (PassTest.TestPassword(startup.Password))
                 {
@@ -39,7 +39,7 @@ namespace BBI_PhasmoHelperV1
                     Application.Exit();
                 }
             }
-            else if (startup.Mode == StartUpMenu.startMode.ChangeGhostMode)
+            else if (startup.Mode == StartUpMenu.StartMode.ChangeGhostMode)
             {
                 if (PassTest.TestPassword(startup.Password))
                 {
@@ -50,11 +50,11 @@ namespace BBI_PhasmoHelperV1
                     Application.Run(new ChangeGhostForm(false));
                 }
             }
-            else if (startup.Mode == StartUpMenu.startMode.Offline)
+            else if (startup.Mode == StartUpMenu.StartMode.Offline)
             {
                 Application.Run(new MainForm());
             }
-            else if (startup.Mode == StartUpMenu.startMode.NoneSelected)
+            else if (startup.Mode == StartUpMenu.StartMode.NoneSelected)
             {
                 Application.Exit();
             }

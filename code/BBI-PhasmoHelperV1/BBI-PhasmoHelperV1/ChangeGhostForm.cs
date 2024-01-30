@@ -58,11 +58,11 @@ namespace BBI_PhasmoHelperV1
                 GhostCB.Items.Clear();
 
                 string runningDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string relayDirectory = Path.Combine(runningDirectory, "ghosts");
-                if (Directory.Exists(relayDirectory))
+                string ghostsDirectory = Path.Combine(runningDirectory, "ghosts");
+                if (Directory.Exists(ghostsDirectory))
                 {
                     // get all the files in the runningDirectory
-                    string[] files = Directory.GetFiles(relayDirectory);
+                    string[] files = Directory.GetFiles(ghostsDirectory);
 
                     // first clear the combobox
                     GhostCB.Items.Clear();

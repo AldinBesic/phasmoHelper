@@ -97,6 +97,7 @@
             this.Controls.Add(this.ServerButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StartUpMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Startmenu";
             this.Load += new System.EventHandler(this.StartUpMenu_Load);
             this.ResumeLayout(false);

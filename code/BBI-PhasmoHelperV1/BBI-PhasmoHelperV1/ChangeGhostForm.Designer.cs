@@ -38,7 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.finishBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.e1CB = new System.Windows.Forms.ComboBox();
             this.e2CB = new System.Windows.Forms.ComboBox();
@@ -140,15 +139,6 @@
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 27;
             this.label1.Text = "Evidence 1:";
-            // 
-            // finishBtn
-            // 
-            this.finishBtn.Location = new System.Drawing.Point(10, 277);
-            this.finishBtn.Name = "finishBtn";
-            this.finishBtn.Size = new System.Drawing.Size(143, 48);
-            this.finishBtn.TabIndex = 26;
-            this.finishBtn.Text = "Finish";
-            this.finishBtn.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -253,7 +243,7 @@
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(159, 277);
+            this.SaveBtn.Location = new System.Drawing.Point(18, 274);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(143, 48);
             this.SaveBtn.TabIndex = 58;
@@ -333,7 +323,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.finishBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChangeGhostForm";
             this.Text = "ghostmeuk";
@@ -353,7 +342,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button finishBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox e1CB;
         private System.Windows.Forms.ComboBox e2CB;
