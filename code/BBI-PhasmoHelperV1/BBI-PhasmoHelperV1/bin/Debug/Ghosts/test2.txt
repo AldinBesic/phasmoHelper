@@ -1,0 +1,10 @@
+Name: test2
+E1: SpiritBox
+E2: Ultraviolet
+E3: EMF5
+Strengths: a
+Weakness: b
+Strats: Stratsenz
+Note: Noteeren
+Ability: c
+Threshold: 70%

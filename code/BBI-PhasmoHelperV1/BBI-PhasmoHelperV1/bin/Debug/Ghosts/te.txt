@@ -1,0 +1,10 @@
+Name: te
+E1: SpiritBox
+E2: Ultraviolet
+E3: EMF5
+Strengths: ae
+Weakness: be
+Strats: Stratsenze
+Note: testse
+Ability: cde
+Threshold: 75%

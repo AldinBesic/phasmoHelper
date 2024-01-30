@@ -1,0 +1,12 @@
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\bin\Debug\BBI-PhasmoHelperV1.exe.config
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\bin\Debug\BBI-PhasmoHelperV1.exe
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\bin\Debug\BBI-PhasmoHelperV1.pdb
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI-PhasmoHelperV1.csproj.AssemblyReference.cache
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI_PhasmoHelperV1.Properties.Resources.resources
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI_PhasmoHelperV1.StartUpMenu.resources
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI-PhasmoHelperV1.csproj.GenerateResource.cache
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI-PhasmoHelperV1.csproj.CoreCompileInputs.cache
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI-PhasmoHelperV1.exe
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI-PhasmoHelperV1.pdb
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI_PhasmoHelperV1.MainForm.resources
+C:\Users\mrhon\projects\t-db2-01t-aldinbesic\Drone-project\niet_zo_interessant_voor_docenten\eigenC#progs\BBI-PhasmoHelperV1\BBI-PhasmoHelperV1\obj\Debug\BBI_PhasmoHelperV1.ChangeGhostForm.resources
