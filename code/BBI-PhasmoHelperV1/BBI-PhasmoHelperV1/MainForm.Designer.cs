@@ -48,6 +48,7 @@
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sorryNogNietKlaarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetEvidence = new System.Windows.Forms.ToolStripMenuItem();
             this.emfBtn = new System.Windows.Forms.Button();
             this.dotsBtn = new System.Windows.Forms.Button();
             this.ultravioletBtn = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.remainingGhostsTB = new System.Windows.Forms.TextBox();
-            this.resetEvidence = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.evidenceGB.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +77,7 @@
             this.consoleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.consoleTextBox.BackColor = System.Drawing.SystemColors.ControlDark;
             this.consoleTextBox.Location = new System.Drawing.Point(21, 887);
-            this.consoleTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.consoleTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.consoleTextBox.Multiline = true;
             this.consoleTextBox.Name = "consoleTextBox";
             this.consoleTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -229,104 +229,119 @@
             this.sorryNogNietKlaarToolStripMenuItem.Size = new System.Drawing.Size(473, 54);
             this.sorryNogNietKlaarToolStripMenuItem.Text = "Sorry, nog niet klaar :)";
             // 
+            // resetEvidence
+            // 
+            this.resetEvidence.Name = "resetEvidence";
+            this.resetEvidence.Size = new System.Drawing.Size(114, 45);
+            this.resetEvidence.Text = "Reset";
+            // 
             // emfBtn
             // 
             this.emfBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.emfBtn.Location = new System.Drawing.Point(11, 25);
-            this.emfBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emfBtn.Margin = new System.Windows.Forms.Padding(5);
             this.emfBtn.Name = "emfBtn";
             this.emfBtn.Size = new System.Drawing.Size(226, 124);
             this.emfBtn.TabIndex = 14;
             this.emfBtn.Text = "EMF 5";
             this.emfBtn.UseVisualStyleBackColor = false;
+            this.emfBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // dotsBtn
             // 
             this.dotsBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.dotsBtn.Location = new System.Drawing.Point(247, 25);
-            this.dotsBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dotsBtn.Margin = new System.Windows.Forms.Padding(5);
             this.dotsBtn.Name = "dotsBtn";
             this.dotsBtn.Size = new System.Drawing.Size(226, 124);
             this.dotsBtn.TabIndex = 15;
             this.dotsBtn.Text = "Dots";
             this.dotsBtn.UseVisualStyleBackColor = false;
+            this.dotsBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // ultravioletBtn
             // 
             this.ultravioletBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ultravioletBtn.Location = new System.Drawing.Point(484, 25);
-            this.ultravioletBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ultravioletBtn.Margin = new System.Windows.Forms.Padding(5);
             this.ultravioletBtn.Name = "ultravioletBtn";
             this.ultravioletBtn.Size = new System.Drawing.Size(226, 124);
             this.ultravioletBtn.TabIndex = 16;
             this.ultravioletBtn.Text = "UV";
             this.ultravioletBtn.UseVisualStyleBackColor = false;
+            this.ultravioletBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // spiritBoxBtn
             // 
             this.spiritBoxBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.spiritBoxBtn.Location = new System.Drawing.Point(484, 158);
-            this.spiritBoxBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.spiritBoxBtn.Margin = new System.Windows.Forms.Padding(5);
             this.spiritBoxBtn.Name = "spiritBoxBtn";
             this.spiritBoxBtn.Size = new System.Drawing.Size(226, 124);
             this.spiritBoxBtn.TabIndex = 19;
             this.spiritBoxBtn.Text = "Spirit box";
             this.spiritBoxBtn.UseVisualStyleBackColor = false;
+            this.spiritBoxBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // ghostWritingBtn
             // 
             this.ghostWritingBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ghostWritingBtn.Location = new System.Drawing.Point(247, 158);
-            this.ghostWritingBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ghostWritingBtn.Margin = new System.Windows.Forms.Padding(5);
             this.ghostWritingBtn.Name = "ghostWritingBtn";
             this.ghostWritingBtn.Size = new System.Drawing.Size(226, 124);
             this.ghostWritingBtn.TabIndex = 18;
             this.ghostWritingBtn.Text = "Ghost writing";
             this.ghostWritingBtn.UseVisualStyleBackColor = false;
+            this.ghostWritingBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // gorbBtn
             // 
             this.gorbBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.gorbBtn.Location = new System.Drawing.Point(11, 158);
-            this.gorbBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gorbBtn.Margin = new System.Windows.Forms.Padding(5);
             this.gorbBtn.Name = "gorbBtn";
             this.gorbBtn.Size = new System.Drawing.Size(226, 124);
             this.gorbBtn.TabIndex = 17;
             this.gorbBtn.Text = "Ghost orbs";
             this.gorbBtn.UseVisualStyleBackColor = false;
+            this.gorbBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // lightsOffBtn
             // 
             this.lightsOffBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.lightsOffBtn.Location = new System.Drawing.Point(484, 291);
-            this.lightsOffBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lightsOffBtn.Margin = new System.Windows.Forms.Padding(5);
             this.lightsOffBtn.Name = "lightsOffBtn";
             this.lightsOffBtn.Size = new System.Drawing.Size(226, 124);
             this.lightsOffBtn.TabIndex = 22;
             this.lightsOffBtn.Text = "Turns lights on";
             this.lightsOffBtn.UseVisualStyleBackColor = false;
+            this.lightsOffBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // breakerBtn
             // 
             this.breakerBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.breakerBtn.Location = new System.Drawing.Point(247, 291);
-            this.breakerBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.breakerBtn.Margin = new System.Windows.Forms.Padding(5);
             this.breakerBtn.Name = "breakerBtn";
             this.breakerBtn.Size = new System.Drawing.Size(226, 124);
             this.breakerBtn.TabIndex = 21;
             this.breakerBtn.Text = "Breaker shutoff";
             this.breakerBtn.UseVisualStyleBackColor = false;
+            this.breakerBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // freezingBtn
             // 
             this.freezingBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.freezingBtn.Location = new System.Drawing.Point(11, 291);
-            this.freezingBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.freezingBtn.Margin = new System.Windows.Forms.Padding(5);
             this.freezingBtn.Name = "freezingBtn";
             this.freezingBtn.Size = new System.Drawing.Size(226, 124);
             this.freezingBtn.TabIndex = 20;
             this.freezingBtn.Text = "Freezing temps";
             this.freezingBtn.UseVisualStyleBackColor = false;
+            this.freezingBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // consoleInputTB
             // 
@@ -341,34 +356,37 @@
             // 
             this.mimicOrbsBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.mimicOrbsBtn.Location = new System.Drawing.Point(11, 425);
-            this.mimicOrbsBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.mimicOrbsBtn.Margin = new System.Windows.Forms.Padding(5);
             this.mimicOrbsBtn.Name = "mimicOrbsBtn";
             this.mimicOrbsBtn.Size = new System.Drawing.Size(226, 62);
             this.mimicOrbsBtn.TabIndex = 24;
             this.mimicOrbsBtn.Text = "Mimic orbs";
             this.mimicOrbsBtn.UseVisualStyleBackColor = false;
+            this.mimicOrbsBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // instaTurnOffLights
             // 
             this.instaTurnOffLights.BackColor = System.Drawing.SystemColors.ControlDark;
             this.instaTurnOffLights.Location = new System.Drawing.Point(247, 425);
-            this.instaTurnOffLights.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.instaTurnOffLights.Margin = new System.Windows.Forms.Padding(5);
             this.instaTurnOffLights.Name = "instaTurnOffLights";
             this.instaTurnOffLights.Size = new System.Drawing.Size(226, 62);
             this.instaTurnOffLights.TabIndex = 25;
             this.instaTurnOffLights.Text = "Lights Insta off";
             this.instaTurnOffLights.UseVisualStyleBackColor = false;
+            this.instaTurnOffLights.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // doorSlamBtn
             // 
             this.doorSlamBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.doorSlamBtn.Location = new System.Drawing.Point(484, 425);
-            this.doorSlamBtn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.doorSlamBtn.Margin = new System.Windows.Forms.Padding(5);
             this.doorSlamBtn.Name = "doorSlamBtn";
             this.doorSlamBtn.Size = new System.Drawing.Size(226, 62);
             this.doorSlamBtn.TabIndex = 26;
             this.doorSlamBtn.Text = "door slam";
             this.doorSlamBtn.UseVisualStyleBackColor = false;
+            this.doorSlamBtn.Click += new System.EventHandler(this.EvidenceBtn_Click);
             // 
             // evidenceGB
             // 
@@ -385,9 +403,9 @@
             this.evidenceGB.Controls.Add(this.dotsBtn);
             this.evidenceGB.Controls.Add(this.emfBtn);
             this.evidenceGB.Location = new System.Drawing.Point(0, 56);
-            this.evidenceGB.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.evidenceGB.Margin = new System.Windows.Forms.Padding(5);
             this.evidenceGB.Name = "evidenceGB";
-            this.evidenceGB.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.evidenceGB.Padding = new System.Windows.Forms.Padding(5);
             this.evidenceGB.Size = new System.Drawing.Size(724, 498);
             this.evidenceGB.TabIndex = 27;
             this.evidenceGB.TabStop = false;
@@ -451,12 +469,6 @@
             this.remainingGhostsTB.Size = new System.Drawing.Size(872, 462);
             this.remainingGhostsTB.TabIndex = 32;
             // 
-            // resetEvidence
-            // 
-            this.resetEvidence.Name = "resetEvidence";
-            this.resetEvidence.Size = new System.Drawing.Size(114, 45);
-            this.resetEvidence.Text = "Reset";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -475,7 +487,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PhasmoHelperV1";

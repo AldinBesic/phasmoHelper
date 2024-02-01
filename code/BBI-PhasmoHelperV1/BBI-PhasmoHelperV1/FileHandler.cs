@@ -18,7 +18,8 @@ namespace BBI_PhasmoHelperV1
             Fingerprints,
             GhostOrbs,
             GhostWriting,
-            FreezingTemperatures
+            FreezingTemperatures,
+            Dots
         }
 
         /// <summary>
