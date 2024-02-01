@@ -53,6 +53,7 @@
     <Compile Include="ChangeGhostForm.Designer.cs">
       <DependentUpon>ChangeGhostForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileHandler.cs" />
     <Compile Include="Ghost.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

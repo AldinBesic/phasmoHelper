@@ -89,6 +89,7 @@ namespace BBI_PhasmoHelperV1
             }
         }
 
+
         private void importGhostBtn_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog
@@ -101,11 +102,12 @@ namespace BBI_PhasmoHelperV1
                 {
                     try
                     {
-                        string filePath = openFileDialog.FileName;
-                        string[] lines = File.ReadAllLines(filePath);
+                        MessageBox.Show("nog niet gemaakt");
+                        //string filePath = openFileDialog.FileName;
+                        //string[] lines = File.ReadAllLines(filePath);
 
-                        foreach (string line in lines)
-                        {/*
+                        //foreach (string line in lines)
+                        /*{
                             if (line.StartsWith("Drone: "))
                             {
                                 //droneNameTB.Text = line.Substring("Drone: ".Length);
@@ -113,8 +115,8 @@ namespace BBI_PhasmoHelperV1
                             else if (line.StartsWith("Adress: "))
                             {
                                 //adressTB.Text = line.Substring("Adress: ".Length);
-                        }*/
                         }
+                        }*/
                     }
                     catch (Exception ex)
                     {
@@ -142,7 +144,7 @@ namespace BBI_PhasmoHelperV1
             // get the runningDirectory of the exe
             string runningDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            // check if the drone runningDirectory already exists in the same runningDirectory as the exe, if not, create one, making sure to handle the exeptions
+            // check if the ghosts runningDirectory already exists in the same runningDirectory as the exe, if not, create one, making sure to handle the exeptions
             try
             {
                 string ghostsDirectory = Path.Combine(runningDirectory, "Ghosts");
@@ -159,7 +161,16 @@ namespace BBI_PhasmoHelperV1
                 }
 
                 // save the textboxes to the file
-                string[] lines = { $"Name: {ghostNameTB.Text}", $"E1: {e1CB.Text}", $"E2: {e2CB.Text}", $"E3: {e3CB.Text}", $"Strengths: {strengthsTB.Text}", $"Weakness: {weaknessTB.Text}", $"Strats: {StratsTB.Text}", $"Note: {noteTB.Text}", $"Ability: {abilityTB.Text}", $"Threshold: {huntThreshholdTB.Text}" };
+                string[] lines = {$"E1: {e1CB.Text}", $"E2: {e2CB.Text}", $"E3: {e3CB.Text}", $"Strengths: {strengthsTB.Text}", $"Weakness: {weaknessTB.Text}", $"Strats: {StratsTB.Text}", $"Note: {noteTB.Text}", $"Ability: {abilityTB.Text}", $"Threshold: {huntThreshholdTB.Text}" };
+                // add the breaker and lights to the file if they are checked
+                if (breakerCheckB.Checked)
+                {
+                    lines.Append("TurnsOffBreaker");
+                }
+                if (lightsCheckB.Checked)
+                {
+                    lines.Append("TurnsOffLights");
+                }
                 File.WriteAllLines(ghostFile, lines);
             }
             catch (Exception ex)
@@ -199,21 +210,20 @@ namespace BBI_PhasmoHelperV1
             string ghostsDirectory = Path.Combine(directory, "Ghosts");
 
             // Check if the file exists
-            string relayFile = Path.Combine(ghostsDirectory, $"{selectedGhost}.txt");
+            string ghostFile = Path.Combine(ghostsDirectory, $"{selectedGhost}.txt");
             try
             {
-                if (File.Exists(relayFile))
+                if (File.Exists(ghostFile))
                 {
                     // Read the file lines
-                    string[] lines = File.ReadAllLines(relayFile);
+                    string[] lines = File.ReadAllLines(ghostFile);
 
                     foreach (string line in lines)
                     {
-                        if (line.StartsWith("Name: "))
-                        {
-                            ghostNameTB.Text = line.Substring("Name: ".Length);
-                        }
-                        else if (line.StartsWith("Weakness: "))
+                        //name is the same as the file name
+                        ghostNameTB.Text = selectedGhost;
+
+                        if (line.StartsWith("Weakness: "))
                         {
                             weaknessTB.Text = line.Substring("Weakness: ".Length);
                         }
@@ -251,6 +261,14 @@ namespace BBI_PhasmoHelperV1
                         else if (line.StartsWith("Threshold:"))
                         {
                             huntThreshholdTB.Text = line.Substring("Threshold: ".Length);
+                        }
+                        else if (line.StartsWith("TurnsOffBreaker"))
+                        {
+                            breakerCheckB.Checked = true;
+                        }
+                        else if (line.StartsWith("TurnsOffLights"))
+                        {
+                            lightsCheckB.Checked = true;
                         }
                     }
                 }

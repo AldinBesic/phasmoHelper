@@ -5,6 +5,6 @@ E3: EMF5
 Strengths: ae
 Weakness: be
 Strats: Stratsenze
-Note: testse
+Note: bla
 Ability: cde
 Threshold: 75%

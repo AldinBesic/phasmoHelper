@@ -65,7 +65,7 @@ namespace BBI_PhasmoHelperV1
             HuntSanity = huntSanity;
         }
 
-        bool HasEvidence(string evidence)
+        public bool HasEvidence(string evidence)
         {
             foreach (string evi in Evidence)
             {
