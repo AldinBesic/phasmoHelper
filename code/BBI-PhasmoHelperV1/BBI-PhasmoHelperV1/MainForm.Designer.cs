@@ -68,14 +68,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.remainingGhostsTB = new System.Windows.Forms.TextBox();
+            this.GhostInfoGB = new System.Windows.Forms.GroupBox();
+            this.ghostNameLBL = new System.Windows.Forms.Label();
+            this.rightArrowPB = new System.Windows.Forms.PictureBox();
+            this.leftArrowPB = new System.Windows.Forms.PictureBox();
+            this.e1LBL = new System.Windows.Forms.Label();
+            this.e2LBL = new System.Windows.Forms.Label();
+            this.e3LBL = new System.Windows.Forms.Label();
+            this.strengtsTB = new System.Windows.Forms.TextBox();
+            this.weaknessTB = new System.Windows.Forms.TextBox();
+            this.abilityTB = new System.Windows.Forms.TextBox();
+            this.noteTB = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.evidenceGB.SuspendLayout();
+            this.GhostInfoGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rightArrowPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leftArrowPB)).BeginInit();
             this.SuspendLayout();
             // 
             // consoleTextBox
             // 
             this.consoleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.consoleTextBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.consoleTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.consoleTextBox.Enabled = false;
             this.consoleTextBox.Location = new System.Drawing.Point(12, 572);
             this.consoleTextBox.Multiline = true;
             this.consoleTextBox.Name = "consoleTextBox";
@@ -155,7 +171,7 @@
             this.addNewToolStripMenuItem,
             this.loadToolStripMenuItem});
             this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-            this.serverToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.serverToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.serverToolStripMenuItem.Text = "Server";
             // 
             // pingServerToolStripMenuItem
@@ -188,7 +204,7 @@
             this.addNewToolStripMenuItem1,
             this.toolStripPassTB});
             this.ghostsToolStripMenuItem.Name = "ghostsToolStripMenuItem";
-            this.ghostsToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.ghostsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.ghostsToolStripMenuItem.Text = "Ghosts";
             // 
             // addNewToolStripMenuItem1
@@ -237,6 +253,7 @@
             // emfBtn
             // 
             this.emfBtn.BackColor = System.Drawing.Color.Gray;
+            this.emfBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.emfBtn.Location = new System.Drawing.Point(6, 16);
             this.emfBtn.Name = "emfBtn";
             this.emfBtn.Size = new System.Drawing.Size(127, 80);
@@ -248,6 +265,7 @@
             // dotsBtn
             // 
             this.dotsBtn.BackColor = System.Drawing.Color.Gray;
+            this.dotsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dotsBtn.Location = new System.Drawing.Point(139, 16);
             this.dotsBtn.Name = "dotsBtn";
             this.dotsBtn.Size = new System.Drawing.Size(127, 80);
@@ -259,6 +277,7 @@
             // ultravioletBtn
             // 
             this.ultravioletBtn.BackColor = System.Drawing.Color.Gray;
+            this.ultravioletBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ultravioletBtn.Location = new System.Drawing.Point(272, 16);
             this.ultravioletBtn.Name = "ultravioletBtn";
             this.ultravioletBtn.Size = new System.Drawing.Size(127, 80);
@@ -270,6 +289,7 @@
             // spiritBoxBtn
             // 
             this.spiritBoxBtn.BackColor = System.Drawing.Color.Gray;
+            this.spiritBoxBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spiritBoxBtn.Location = new System.Drawing.Point(272, 102);
             this.spiritBoxBtn.Name = "spiritBoxBtn";
             this.spiritBoxBtn.Size = new System.Drawing.Size(127, 80);
@@ -281,6 +301,7 @@
             // ghostWritingBtn
             // 
             this.ghostWritingBtn.BackColor = System.Drawing.Color.Gray;
+            this.ghostWritingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ghostWritingBtn.Location = new System.Drawing.Point(139, 102);
             this.ghostWritingBtn.Name = "ghostWritingBtn";
             this.ghostWritingBtn.Size = new System.Drawing.Size(127, 80);
@@ -292,6 +313,7 @@
             // gorbBtn
             // 
             this.gorbBtn.BackColor = System.Drawing.Color.Gray;
+            this.gorbBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gorbBtn.Location = new System.Drawing.Point(6, 102);
             this.gorbBtn.Name = "gorbBtn";
             this.gorbBtn.Size = new System.Drawing.Size(127, 80);
@@ -303,6 +325,7 @@
             // lightsOffBtn
             // 
             this.lightsOffBtn.BackColor = System.Drawing.Color.Gray;
+            this.lightsOffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lightsOffBtn.Location = new System.Drawing.Point(272, 188);
             this.lightsOffBtn.Name = "lightsOffBtn";
             this.lightsOffBtn.Size = new System.Drawing.Size(127, 80);
@@ -314,6 +337,7 @@
             // breakerBtn
             // 
             this.breakerBtn.BackColor = System.Drawing.Color.Gray;
+            this.breakerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.breakerBtn.Location = new System.Drawing.Point(139, 188);
             this.breakerBtn.Name = "breakerBtn";
             this.breakerBtn.Size = new System.Drawing.Size(127, 80);
@@ -325,6 +349,7 @@
             // freezingBtn
             // 
             this.freezingBtn.BackColor = System.Drawing.Color.Gray;
+            this.freezingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.freezingBtn.Location = new System.Drawing.Point(6, 188);
             this.freezingBtn.Name = "freezingBtn";
             this.freezingBtn.Size = new System.Drawing.Size(127, 80);
@@ -345,6 +370,7 @@
             // mimicOrbsBtn
             // 
             this.mimicOrbsBtn.BackColor = System.Drawing.Color.Gray;
+            this.mimicOrbsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mimicOrbsBtn.Enabled = false;
             this.mimicOrbsBtn.Location = new System.Drawing.Point(6, 274);
             this.mimicOrbsBtn.Name = "mimicOrbsBtn";
@@ -356,6 +382,7 @@
             // instaTurnOffLights
             // 
             this.instaTurnOffLights.BackColor = System.Drawing.Color.Gray;
+            this.instaTurnOffLights.Cursor = System.Windows.Forms.Cursors.Hand;
             this.instaTurnOffLights.Enabled = false;
             this.instaTurnOffLights.Location = new System.Drawing.Point(139, 274);
             this.instaTurnOffLights.Name = "instaTurnOffLights";
@@ -367,6 +394,7 @@
             // doorSlamBtn
             // 
             this.doorSlamBtn.BackColor = System.Drawing.Color.Gray;
+            this.doorSlamBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.doorSlamBtn.Enabled = false;
             this.doorSlamBtn.Location = new System.Drawing.Point(272, 274);
             this.doorSlamBtn.Name = "doorSlamBtn";
@@ -389,7 +417,7 @@
             this.evidenceGB.Controls.Add(this.ultravioletBtn);
             this.evidenceGB.Controls.Add(this.dotsBtn);
             this.evidenceGB.Controls.Add(this.emfBtn);
-            this.evidenceGB.Location = new System.Drawing.Point(0, 36);
+            this.evidenceGB.Location = new System.Drawing.Point(0, 49);
             this.evidenceGB.Name = "evidenceGB";
             this.evidenceGB.Size = new System.Drawing.Size(407, 321);
             this.evidenceGB.TabIndex = 27;
@@ -443,13 +471,155 @@
             // remainingGhostsTB
             // 
             this.remainingGhostsTB.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.remainingGhostsTB.Location = new System.Drawing.Point(420, 52);
+            this.remainingGhostsTB.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.remainingGhostsTB.Location = new System.Drawing.Point(412, 64);
             this.remainingGhostsTB.Margin = new System.Windows.Forms.Padding(2);
             this.remainingGhostsTB.Multiline = true;
             this.remainingGhostsTB.Name = "remainingGhostsTB";
             this.remainingGhostsTB.ReadOnly = true;
-            this.remainingGhostsTB.Size = new System.Drawing.Size(492, 299);
+            this.remainingGhostsTB.Size = new System.Drawing.Size(450, 299);
             this.remainingGhostsTB.TabIndex = 32;
+            // 
+            // GhostInfoGB
+            // 
+            this.GhostInfoGB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.GhostInfoGB.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.GhostInfoGB.Controls.Add(this.noteTB);
+            this.GhostInfoGB.Controls.Add(this.abilityTB);
+            this.GhostInfoGB.Controls.Add(this.weaknessTB);
+            this.GhostInfoGB.Controls.Add(this.strengtsTB);
+            this.GhostInfoGB.Controls.Add(this.e3LBL);
+            this.GhostInfoGB.Controls.Add(this.e2LBL);
+            this.GhostInfoGB.Controls.Add(this.e1LBL);
+            this.GhostInfoGB.Controls.Add(this.rightArrowPB);
+            this.GhostInfoGB.Controls.Add(this.leftArrowPB);
+            this.GhostInfoGB.Controls.Add(this.ghostNameLBL);
+            this.GhostInfoGB.Location = new System.Drawing.Point(886, 49);
+            this.GhostInfoGB.Name = "GhostInfoGB";
+            this.GhostInfoGB.Size = new System.Drawing.Size(544, 800);
+            this.GhostInfoGB.TabIndex = 33;
+            this.GhostInfoGB.TabStop = false;
+            this.GhostInfoGB.Text = "Ghost Info";
+            // 
+            // ghostNameLBL
+            // 
+            this.ghostNameLBL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ghostNameLBL.AutoSize = true;
+            this.ghostNameLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ghostNameLBL.Location = new System.Drawing.Point(172, 33);
+            this.ghostNameLBL.Name = "ghostNameLBL";
+            this.ghostNameLBL.Size = new System.Drawing.Size(192, 37);
+            this.ghostNameLBL.TabIndex = 0;
+            this.ghostNameLBL.Text = "Ghostname";
+            // 
+            // rightArrowPB
+            // 
+            this.rightArrowPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightArrowPB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rightArrowPB.Image = global::BBI_PhasmoHelperV1.Properties.Resources.right;
+            this.rightArrowPB.Location = new System.Drawing.Point(468, 15);
+            this.rightArrowPB.Name = "rightArrowPB";
+            this.rightArrowPB.Size = new System.Drawing.Size(70, 70);
+            this.rightArrowPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rightArrowPB.TabIndex = 2;
+            this.rightArrowPB.TabStop = false;
+            // 
+            // leftArrowPB
+            // 
+            this.leftArrowPB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.leftArrowPB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.leftArrowPB.Image = global::BBI_PhasmoHelperV1.Properties.Resources.left;
+            this.leftArrowPB.Location = new System.Drawing.Point(6, 16);
+            this.leftArrowPB.Name = "leftArrowPB";
+            this.leftArrowPB.Size = new System.Drawing.Size(70, 70);
+            this.leftArrowPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.leftArrowPB.TabIndex = 1;
+            this.leftArrowPB.TabStop = false;
+            // 
+            // e1LBL
+            // 
+            this.e1LBL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.e1LBL.AutoSize = true;
+            this.e1LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.e1LBL.Location = new System.Drawing.Point(95, 125);
+            this.e1LBL.Name = "e1LBL";
+            this.e1LBL.Size = new System.Drawing.Size(42, 29);
+            this.e1LBL.TabIndex = 3;
+            this.e1LBL.Text = "E1";
+            // 
+            // e2LBL
+            // 
+            this.e2LBL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.e2LBL.AutoSize = true;
+            this.e2LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.e2LBL.Location = new System.Drawing.Point(249, 125);
+            this.e2LBL.Name = "e2LBL";
+            this.e2LBL.Size = new System.Drawing.Size(42, 29);
+            this.e2LBL.TabIndex = 4;
+            this.e2LBL.Text = "E2";
+            // 
+            // e3LBL
+            // 
+            this.e3LBL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.e3LBL.AutoSize = true;
+            this.e3LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.e3LBL.Location = new System.Drawing.Point(401, 125);
+            this.e3LBL.Name = "e3LBL";
+            this.e3LBL.Size = new System.Drawing.Size(42, 29);
+            this.e3LBL.TabIndex = 5;
+            this.e3LBL.Text = "E3";
+            // 
+            // strengtsTB
+            // 
+            this.strengtsTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.strengtsTB.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.strengtsTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strengtsTB.Location = new System.Drawing.Point(6, 211);
+            this.strengtsTB.Multiline = true;
+            this.strengtsTB.Name = "strengtsTB";
+            this.strengtsTB.ReadOnly = true;
+            this.strengtsTB.Size = new System.Drawing.Size(532, 127);
+            this.strengtsTB.TabIndex = 6;
+            this.strengtsTB.Text = "Strengths";
+            // 
+            // weaknessTB
+            // 
+            this.weaknessTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.weaknessTB.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.weaknessTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weaknessTB.Location = new System.Drawing.Point(6, 344);
+            this.weaknessTB.Multiline = true;
+            this.weaknessTB.Name = "weaknessTB";
+            this.weaknessTB.ReadOnly = true;
+            this.weaknessTB.Size = new System.Drawing.Size(532, 127);
+            this.weaknessTB.TabIndex = 7;
+            this.weaknessTB.Text = "Weakness\'";
+            // 
+            // abilityTB
+            // 
+            this.abilityTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.abilityTB.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.abilityTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abilityTB.Location = new System.Drawing.Point(6, 477);
+            this.abilityTB.Multiline = true;
+            this.abilityTB.Name = "abilityTB";
+            this.abilityTB.ReadOnly = true;
+            this.abilityTB.Size = new System.Drawing.Size(532, 127);
+            this.abilityTB.TabIndex = 8;
+            this.abilityTB.Text = "Ability";
+            // 
+            // noteTB
+            // 
+            this.noteTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.noteTB.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.noteTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteTB.Location = new System.Drawing.Point(6, 610);
+            this.noteTB.Multiline = true;
+            this.noteTB.Name = "noteTB";
+            this.noteTB.ReadOnly = true;
+            this.noteTB.Size = new System.Drawing.Size(532, 184);
+            this.noteTB.TabIndex = 9;
+            this.noteTB.Text = "Note";
             // 
             // MainForm
             // 
@@ -457,6 +627,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(1442, 861);
+            this.Controls.Add(this.GhostInfoGB);
             this.Controls.Add(this.remainingGhostsTB);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.label1);
@@ -468,13 +639,19 @@
             this.Controls.Add(this.consoleTextBox);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PhasmoHelperV1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mainForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.evidenceGB.ResumeLayout(false);
+            this.GhostInfoGB.ResumeLayout(false);
+            this.GhostInfoGB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rightArrowPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leftArrowPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,5 +698,16 @@
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.TextBox remainingGhostsTB;
         private System.Windows.Forms.ToolStripMenuItem resetEvidence;
+        private System.Windows.Forms.GroupBox GhostInfoGB;
+        private System.Windows.Forms.Label ghostNameLBL;
+        private System.Windows.Forms.PictureBox leftArrowPB;
+        private System.Windows.Forms.PictureBox rightArrowPB;
+        private System.Windows.Forms.TextBox strengtsTB;
+        private System.Windows.Forms.Label e3LBL;
+        private System.Windows.Forms.Label e2LBL;
+        private System.Windows.Forms.Label e1LBL;
+        private System.Windows.Forms.TextBox noteTB;
+        private System.Windows.Forms.TextBox abilityTB;
+        private System.Windows.Forms.TextBox weaknessTB;
     }
 }

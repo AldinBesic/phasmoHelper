@@ -58,14 +58,7 @@ namespace BBI_PhasmoHelperV1
             InitializeComponent();
             helpText = preWord + versionText + helpText;
             Reset();
-            InitializeButtons();
             ButtonList();
-        }
-
-        private void InitializeButtons()
-        {
-            //add all the buttons to the list
-
         }
 
         void Reset()
@@ -121,49 +114,49 @@ namespace BBI_PhasmoHelperV1
         private void RemoveNonRelevantGhosts(bool secondary)
         {
             List<Ghost> ghostsToRemove = new List<Ghost>();
-           /* if (secondary)
+            /* if (secondary)
+             {
+                 foreach (Ghost ghost in ghosts)
+                 {
+                     if (turnsOnLights)
+                     {
+                         if (!ghost.CanTurnOnLights)
+                         {
+                               ghostsToRemove.Add(ghost);
+                         }
+                     }
+                     if (turnsOffBreaker)
+                     {
+                         if (!ghost.TurnsOffBreaker)
+                         {
+                             ghostsToRemove.Add(ghost);
+                         }
+                     }
+
+                 }
+             }
+             else*/
+            //{
+            foreach (string evidence in evidence)
             {
                 foreach (Ghost ghost in ghosts)
                 {
-                    if (turnsOnLights)
+                    if (!ghost.HasEvidence(evidence))
                     {
-                        if (!ghost.CanTurnOnLights)
-                        {
-                              ghostsToRemove.Add(ghost);
-                        }
+                        ghostsToRemove.Add(ghost);
                     }
-                    if (turnsOffBreaker)
-                    {
-                        if (!ghost.TurnsOffBreaker)
-                        {
-                            ghostsToRemove.Add(ghost);
-                        }
-                    }
-
                 }
             }
-            else*/
-            //{
-                foreach (string evidence in evidence)
+            foreach (string evidence in antiEvidence)
+            {
+                foreach (Ghost ghost in ghosts)
                 {
-                    foreach (Ghost ghost in ghosts)
+                    if (ghost.HasEvidence(evidence))
                     {
-                        if (!ghost.HasEvidence(evidence))
-                        {
-                            ghostsToRemove.Add(ghost);
-                        }
+                        ghostsToRemove.Add(ghost);
                     }
                 }
-                foreach (string evidence in antiEvidence)
-                {
-                    foreach (Ghost ghost in ghosts)
-                    {
-                        if (ghost.HasEvidence(evidence))
-                        {
-                            ghostsToRemove.Add(ghost);
-                        }
-                    }
-                }
+            }
             //}
 
             foreach (Ghost ghost in ghostsToRemove)
@@ -350,6 +343,30 @@ namespace BBI_PhasmoHelperV1
         private void resetEvidence_Click(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void WriteToConsole(string text)
+        {
+            consoleTextBox.AppendText(text + Environment.NewLine);
+        }
+
+        private void mainForm_KeyDown(object sender, KeyEventArgs e) // not used yet
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                WriteToConsole("Enter pressed");
+                //handle the enter key and commands
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                WriteToConsole("Right pressed");
+                //handle the right key and commands
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                WriteToConsole("Left pressed");
+                //handle the left key and commands
+            }
         }
     }
 }
