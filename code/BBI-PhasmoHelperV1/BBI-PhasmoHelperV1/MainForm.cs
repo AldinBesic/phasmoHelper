@@ -118,30 +118,53 @@ namespace BBI_PhasmoHelperV1
             }
         }
 
-        private void RemoveNonRelevantGhosts()
+        private void RemoveNonRelevantGhosts(bool secondary)
         {
             List<Ghost> ghostsToRemove = new List<Ghost>();
-
-            foreach (string evidence in evidence)
+           /* if (secondary)
             {
                 foreach (Ghost ghost in ghosts)
                 {
-                    if (!ghost.HasEvidence(evidence))
+                    if (turnsOnLights)
                     {
-                        ghostsToRemove.Add(ghost);
-                    }                    
+                        if (!ghost.CanTurnOnLights)
+                        {
+                              ghostsToRemove.Add(ghost);
+                        }
+                    }
+                    if (turnsOffBreaker)
+                    {
+                        if (!ghost.TurnsOffBreaker)
+                        {
+                            ghostsToRemove.Add(ghost);
+                        }
+                    }
+
                 }
             }
-            foreach (string evidence in antiEvidence)
-            {
-                foreach (Ghost ghost in ghosts)
+            else*/
+            //{
+                foreach (string evidence in evidence)
                 {
-                    if (ghost.HasEvidence(evidence))
+                    foreach (Ghost ghost in ghosts)
                     {
-                        ghostsToRemove.Add(ghost);
+                        if (!ghost.HasEvidence(evidence))
+                        {
+                            ghostsToRemove.Add(ghost);
+                        }
                     }
                 }
-            }
+                foreach (string evidence in antiEvidence)
+                {
+                    foreach (Ghost ghost in ghosts)
+                    {
+                        if (ghost.HasEvidence(evidence))
+                        {
+                            ghostsToRemove.Add(ghost);
+                        }
+                    }
+                }
+            //}
 
             foreach (Ghost ghost in ghostsToRemove)
             {
@@ -199,117 +222,128 @@ namespace BBI_PhasmoHelperV1
             System.Windows.Forms.Button clickedButton = sender as System.Windows.Forms.Button;
             if (clickedButton != null)
             {
-                /*switch (clickedButton.Text)
-                {
-                    case "EMF 5":
-                        if (evidence.Contains("EMF 5"))
-                        {
-                            evidence.Remove("EMF 5");
-                        }
-                        else
-                        {
-                            evidence.Add("EMF 5");
-                        }
-                        break;
-                    case "Spirit box":
-                        if (evidence.Contains("Spirit box"))
-                        {
-                            evidence.Remove("Spirit box");
-                        }
-                        else
-                        {
-                            evidence.Add("Spirit box");
-                        }
-                        break;
-                    case "UV":
-                        evidence.Add("Fingerprints");
-                        break;
-                    case "Ghost orbs":
-                        evidence.Add("GhostOrbs");
-                        break;
-                    case "Ghost writing":
-                        evidence.Add("GhostWriting");
-                        break;
-                    case "Freezing temps":
-                        evidence.Add("FreezingTemperatures");
-                        break;
-                    case "Dots":
-                        evidence.Add("Dots");
-                        break;
-                    case "Turns lights on":
-                        turnsOnLights = true;
-                        break;
-                    case "Breaker shutoff":
-                        turnsOffBreaker = true;
-                        break;
-                    default:
-                        MessageBox.Show("Something went wrong. bel/app je boy: evidenceBtnClickSwitchingERR");
-                        break;
-                }*/
-
                 //find out what button is clicked using the list and switch the state
                 foreach (ButtonHandler buttonToChange in buttons)
                 {
                     if (buttonToChange.Text == clickedButton.Text)
                     {
                         buttonToChange.ChangeState();
-                        switch (buttonToChange.CurrentState.ToString())
+                        if (clickedButton.Text != "Breaker shutoff" && clickedButton.Text != "Turns lights on")
                         {
-                            case "TBD":
-                                //test if the corresponding evidence is in the list and remove it
-                                if (evidence.Contains(buttonToChange.Text))
-                                {
-                                    evidence.Remove(buttonToChange.Text);
-                                }
-                                if (antiEvidence.Contains(buttonToChange.Text))
-                                {
-                                    antiEvidence.Remove(buttonToChange.Text);
-                                }
-                                clickedButton.BackColor = Color.Gray;
-                                break;
-                            case "Found":
-                                if (!evidence.Contains(buttonToChange.Text))
-                                {
-                                    evidence.Add(buttonToChange.Text);
-                                }
-                                if (antiEvidence.Contains(buttonToChange.Text))
-                                {
-                                    antiEvidence.Remove(buttonToChange.Text);
-                                }
-                                clickedButton.BackColor = Color.Green;
-                                break;
-                            case "CrossedOut":
-                                if (evidence.Contains(buttonToChange.Text))
-                                {
-                                    evidence.Remove(buttonToChange.Text);
-                                }
-                                if (!antiEvidence.Contains(buttonToChange.Text))
-                                {
-                                    antiEvidence.Add(buttonToChange.Text);
-                                }
-                                clickedButton.BackColor = Color.Red;
+                            switch (buttonToChange.CurrentState.ToString())
+                            {
+                                case "TBD":
+                                    //test if the corresponding evidence is in the list and remove it
+                                    if (evidence.Contains(buttonToChange.Text))
+                                    {
+                                        evidence.Remove(buttonToChange.Text);
+                                    }
+                                    if (antiEvidence.Contains(buttonToChange.Text))
+                                    {
+                                        antiEvidence.Remove(buttonToChange.Text);
+                                    }
+                                    clickedButton.BackColor = Color.Gray;
+                                    break;
+                                case "Found":
+                                    if (!evidence.Contains(buttonToChange.Text))
+                                    {
+                                        evidence.Add(buttonToChange.Text);
+                                    }
+                                    if (antiEvidence.Contains(buttonToChange.Text))
+                                    {
+                                        antiEvidence.Remove(buttonToChange.Text);
+                                    }
+                                    clickedButton.BackColor = Color.Green;
+                                    break;
+                                case "CrossedOut":
+                                    if (evidence.Contains(buttonToChange.Text))
+                                    {
+                                        evidence.Remove(buttonToChange.Text);
+                                    }
+                                    if (!antiEvidence.Contains(buttonToChange.Text))
+                                    {
+                                        antiEvidence.Add(buttonToChange.Text);
+                                    }
+                                    clickedButton.BackColor = Color.Red;
 
-                                break;
-                            case "Possible": // this is the same as TBD, only difference is for the user (color)
-                                if (evidence.Contains(buttonToChange.Text))
-                                {
-                                    evidence.Remove(buttonToChange.Text);
-                                }
-                                if (antiEvidence.Contains(buttonToChange.Text))
-                                {
-                                    antiEvidence.Remove(buttonToChange.Text);
-                                }
-                                clickedButton.BackColor = Color.Yellow;
-                                break;
-                            default:
-                                MessageBox.Show("Something went wrong. bel/app aldin, buttonToChangeSwitchingERR");
-                                break;
+                                    break;
+                                case "Possible": // this is the same as TBD, only difference is for the user (color)
+                                    if (evidence.Contains(buttonToChange.Text))
+                                    {
+                                        evidence.Remove(buttonToChange.Text);
+                                    }
+                                    if (antiEvidence.Contains(buttonToChange.Text))
+                                    {
+                                        antiEvidence.Remove(buttonToChange.Text);
+                                    }
+                                    clickedButton.BackColor = Color.Yellow;
+                                    break;
+                                default:
+                                    MessageBox.Show("Something went wrong. bel/app aldin, buttonToChangeSwitchingERR");
+                                    break;
+                            }
+                            LoadAllGhostsIntoList();
+                            RemoveNonRelevantGhosts(false);
+                        }
+                        else
+                        {
+                            switch (buttonToChange.CurrentState.ToString())
+                            {
+                                case "TBD":
+                                    clickedButton.BackColor = Color.Gray;
+                                    if (clickedButton.Text == "Turns lights on")
+                                    {
+                                        turnsOnLights = true;
+                                    }
+                                    else if (clickedButton.Text == "Breaker shutoff")
+                                    {
+                                        turnsOffBreaker = true;
+                                    }
+                                    break;
+                                case "Found":
+                                    clickedButton.BackColor = Color.Green;
+                                    if (clickedButton.Text == "Turns lights on")
+                                    {
+                                        turnsOnLights = true;
+                                    }
+                                    else if (clickedButton.Text == "Breaker shutoff")
+                                    {
+                                        turnsOffBreaker = true;
+                                    }
+                                    break;
+                                case "CrossedOut":
+                                    clickedButton.BackColor = Color.Red;
+                                    if (clickedButton.Text == "Turns lights on")
+                                    {
+                                        turnsOnLights = false;
+                                    }
+                                    else if (clickedButton.Text == "Breaker shutoff")
+                                    {
+                                        turnsOffBreaker = false;
+                                    }
+                                    break;
+                                case "Possible": // this is the same as TBD, only difference is for the user (color)
+                                    clickedButton.BackColor = Color.Yellow;
+                                    if (clickedButton.Text == "Turns lights on")
+                                    {
+                                        turnsOnLights = true;
+                                    }
+                                    else if (clickedButton.Text == "Breaker shutoff")
+                                    {
+                                        turnsOffBreaker = true;
+                                    }
+                                    break;
+                                default:
+                                    MessageBox.Show("Something went wrong. bel/app aldin, secondary buttonToChangeSwitchingERR");
+                                    break;
+                            }
+                            LoadAllGhostsIntoList();
+                            RemoveNonRelevantGhosts(true);
                         }
                     }
                 }
             }
-            LoadAllGhostsIntoList();
-            RemoveNonRelevantGhosts();
+
 
         }
 
