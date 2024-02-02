@@ -1,0 +1,9 @@
+E1: SpiritBox
+E2: Dots
+E3: GhostWriting
+Strengths: -
+Weakness: -
+Strats: Strats-
+Note: Note-
+Ability: -
+Threshold: 61%

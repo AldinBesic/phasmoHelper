@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonHandler.cs" />
     <Compile Include="Evidence.cs" />
     <Compile Include="ChangeGhostForm.cs">
       <SubType>Form</SubType>

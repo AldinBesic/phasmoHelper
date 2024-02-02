@@ -107,8 +107,11 @@ namespace BBI_PhasmoHelperV1
                 throw new FileNotFoundException("File not found");
             }
 
+            //create the string
+            string[] evidence = new string[] { e1, e2, e3 };
+
             //create ghost object
-            Ghost ghost = new Ghost(fileName, new string[] { e1, e2, e3 }, turnsOffBreaker, turnsOffLights, strengths, weakness, strats, note, ability, huntThreshhold);
+            Ghost ghost = new Ghost(fileName, evidence, turnsOffBreaker, turnsOffLights, strengths, weakness, strats, note, ability, huntThreshhold);
 
             return ghost;
         }

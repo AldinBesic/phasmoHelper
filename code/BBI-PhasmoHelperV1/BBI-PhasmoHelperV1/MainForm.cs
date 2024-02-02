@@ -43,11 +43,13 @@ namespace BBI_PhasmoHelperV1
             CrossedOut,
             Possible
         };
-        List<EvidenceButtonStates> evidenceButtonStates = new List<EvidenceButtonStates>();
+        List<ButtonHandler> buttons = new List<ButtonHandler>();
+        //List<EvidenceButtonStates> evidenceButtonStates = new List<EvidenceButtonStates>();
         List<string> evidence = new List<string>();
+        List<string> antiEvidence = new List<string>();
         List<Ghost> ghosts = new List<Ghost>();
         bool turnsOffBreaker = true;
-        bool turnsOffLights = true;
+        bool turnsOnLights = true;
         #endregion
 
 
@@ -57,6 +59,7 @@ namespace BBI_PhasmoHelperV1
             helpText = preWord + versionText + helpText;
             Reset();
             InitializeButtons();
+            ButtonList();
         }
 
         private void InitializeButtons()
@@ -65,7 +68,7 @@ namespace BBI_PhasmoHelperV1
 
         }
 
-        private void Reset()
+        void Reset()
         {
             //clear the buttons
 
@@ -75,7 +78,7 @@ namespace BBI_PhasmoHelperV1
             //clear the ghosts list
             ghosts.Clear();
 
-            turnsOffLights = true;
+            turnsOnLights = true;
             turnsOffBreaker = true;
 
             LoadAllGhostsIntoList();
@@ -84,6 +87,8 @@ namespace BBI_PhasmoHelperV1
 
         private void LoadAllGhostsIntoList()
         {
+            //clear the ghosts list
+            ghosts.Clear();
             //current directory
             string runningDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string ghostsDirectory = Path.Combine(runningDirectory, "ghosts");
@@ -95,6 +100,8 @@ namespace BBI_PhasmoHelperV1
             {
                 //remove .txt from the filename
                 string fileName = Path.GetFileNameWithoutExtension(file);
+                //make a ghost from the file
+
                 ghosts.Add(FileHandler.FileInGhostOut(fileName));
             }
         }
@@ -113,16 +120,35 @@ namespace BBI_PhasmoHelperV1
 
         private void RemoveNonRelevantGhosts()
         {
+            List<Ghost> ghostsToRemove = new List<Ghost>();
+
             foreach (string evidence in evidence)
             {
                 foreach (Ghost ghost in ghosts)
                 {
                     if (!ghost.HasEvidence(evidence))
                     {
-                        ghosts.Remove(ghost);
+                        ghostsToRemove.Add(ghost);
+                    }                    
+                }
+            }
+            foreach (string evidence in antiEvidence)
+            {
+                foreach (Ghost ghost in ghosts)
+                {
+                    if (ghost.HasEvidence(evidence))
+                    {
+                        ghostsToRemove.Add(ghost);
                     }
                 }
             }
+
+            foreach (Ghost ghost in ghostsToRemove)
+            {
+                ghosts.Remove(ghost);
+            }
+
+            LoadAllGhostsInTexbox();
         }
 
         private void DisplayGhostInfo(string highlightedGhost)
@@ -147,39 +173,149 @@ namespace BBI_PhasmoHelperV1
             }
         }
 
+        private void ButtonList()
+        {
+            //add all the buttons to the list
+            List<string> buttonsToAdd = new List<string>();
+            buttonsToAdd.Add("EMF 5");
+            buttonsToAdd.Add("Spirit box");
+            buttonsToAdd.Add("UV");
+            buttonsToAdd.Add("Ghost orbs");
+            buttonsToAdd.Add("Ghost writing");
+            buttonsToAdd.Add("Freezing temps");
+            buttonsToAdd.Add("Dots");
+            buttonsToAdd.Add("Turns lights on");
+            buttonsToAdd.Add("Breaker shutoff");
+
+            foreach (string buttonTA in buttonsToAdd)
+            {
+                buttons.Add(new ButtonHandler(buttonTA));
+            }
+
+        }
+
         private void EvidenceBtn_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Button clickedButton = sender as System.Windows.Forms.Button;
             if (clickedButton != null)
             {
-                switch (clickedButton.Text)
+                /*switch (clickedButton.Text)
                 {
                     case "EMF 5":
-                        evidence.Add("EMF 5");
+                        if (evidence.Contains("EMF 5"))
+                        {
+                            evidence.Remove("EMF 5");
+                        }
+                        else
+                        {
+                            evidence.Add("EMF 5");
+                        }
                         break;
-                    case "Spirit Box":
-                        evidence.Add("SpiritBox");
+                    case "Spirit box":
+                        if (evidence.Contains("Spirit box"))
+                        {
+                            evidence.Remove("Spirit box");
+                        }
+                        else
+                        {
+                            evidence.Add("Spirit box");
+                        }
                         break;
                     case "UV":
                         evidence.Add("Fingerprints");
                         break;
-                    case "Ghost Orbs":
+                    case "Ghost orbs":
                         evidence.Add("GhostOrbs");
                         break;
-                    case "Ghost Writing":
+                    case "Ghost writing":
                         evidence.Add("GhostWriting");
                         break;
-                    case "Freezing Temperatures":
+                    case "Freezing temps":
                         evidence.Add("FreezingTemperatures");
                         break;
                     case "Dots":
                         evidence.Add("Dots");
                         break;
+                    case "Turns lights on":
+                        turnsOnLights = true;
+                        break;
+                    case "Breaker shutoff":
+                        turnsOffBreaker = true;
+                        break;
                     default:
                         MessageBox.Show("Something went wrong. bel/app je boy: evidenceBtnClickSwitchingERR");
                         break;
+                }*/
+
+                //find out what button is clicked using the list and switch the state
+                foreach (ButtonHandler buttonToChange in buttons)
+                {
+                    if (buttonToChange.Text == clickedButton.Text)
+                    {
+                        buttonToChange.ChangeState();
+                        switch (buttonToChange.CurrentState.ToString())
+                        {
+                            case "TBD":
+                                //test if the corresponding evidence is in the list and remove it
+                                if (evidence.Contains(buttonToChange.Text))
+                                {
+                                    evidence.Remove(buttonToChange.Text);
+                                }
+                                if (antiEvidence.Contains(buttonToChange.Text))
+                                {
+                                    antiEvidence.Remove(buttonToChange.Text);
+                                }
+                                clickedButton.BackColor = Color.Gray;
+                                break;
+                            case "Found":
+                                if (!evidence.Contains(buttonToChange.Text))
+                                {
+                                    evidence.Add(buttonToChange.Text);
+                                }
+                                if (antiEvidence.Contains(buttonToChange.Text))
+                                {
+                                    antiEvidence.Remove(buttonToChange.Text);
+                                }
+                                clickedButton.BackColor = Color.Green;
+                                break;
+                            case "CrossedOut":
+                                if (evidence.Contains(buttonToChange.Text))
+                                {
+                                    evidence.Remove(buttonToChange.Text);
+                                }
+                                if (!antiEvidence.Contains(buttonToChange.Text))
+                                {
+                                    antiEvidence.Add(buttonToChange.Text);
+                                }
+                                clickedButton.BackColor = Color.Red;
+
+                                break;
+                            case "Possible": // this is the same as TBD, only difference is for the user (color)
+                                if (evidence.Contains(buttonToChange.Text))
+                                {
+                                    evidence.Remove(buttonToChange.Text);
+                                }
+                                if (antiEvidence.Contains(buttonToChange.Text))
+                                {
+                                    antiEvidence.Remove(buttonToChange.Text);
+                                }
+                                clickedButton.BackColor = Color.Yellow;
+                                break;
+                            default:
+                                MessageBox.Show("Something went wrong. bel/app aldin, buttonToChangeSwitchingERR");
+                                break;
+                        }
+                    }
                 }
             }
+            LoadAllGhostsIntoList();
+            RemoveNonRelevantGhosts();
+
+        }
+
+        private void resetEvidence_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 }
