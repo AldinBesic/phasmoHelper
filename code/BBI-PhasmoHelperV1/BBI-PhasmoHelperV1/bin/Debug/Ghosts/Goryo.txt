@@ -1,0 +1,9 @@
+E1: Dots
+E2: Ultraviolet
+E3: SpiritBox
+Strengths: 
+Weakness: 
+Strats: Strat
+Note: Note
+Ability: 
+Threshold: 60%

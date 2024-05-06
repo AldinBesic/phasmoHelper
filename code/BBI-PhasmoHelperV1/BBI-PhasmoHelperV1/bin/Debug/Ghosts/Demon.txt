@@ -1,0 +1,9 @@
+E1: FreezingTemperatures
+E2: Ultraviolet
+E3: GhostWriting
+Strengths: 
+Weakness: 
+Strats: Strat
+Note: note
+Ability: 
+Threshold: 60%

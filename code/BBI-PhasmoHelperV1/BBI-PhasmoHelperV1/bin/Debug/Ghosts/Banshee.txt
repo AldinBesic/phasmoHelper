@@ -1,0 +1,9 @@
+E1: GhostOrbs
+E2: Ultraviolet
+E3: Dots
+Strengths: 
+Weakness: 
+Strats: Strats
+Note: Note
+Ability: 
+Threshold: 60%
