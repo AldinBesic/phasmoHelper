@@ -29,10 +29,6 @@ namespace BBI_PhasmoHelperV1
             FreezingTemperatures,
             Dots
         }
-
-        /* TODO
-         * -Timer toevoegen
-        */
         #endregion
 
         #region // actual vars
@@ -47,9 +43,10 @@ namespace BBI_PhasmoHelperV1
         //List<EvidenceButtonStates> evidenceButtonStates = new List<EvidenceButtonStates>();
         List<string> evidence = new List<string>();
         List<string> antiEvidence = new List<string>();
-        List<Ghost> ghosts = new List<Ghost>();
+        List<Ghost> ghosts = new List<Ghost>(); // all the remaining ghosts are in this list
         bool turnsOffBreaker = true;
         bool turnsOnLights = true;
+        int currentGhostIndex = 0;
         #endregion
 
 
@@ -167,9 +164,7 @@ namespace BBI_PhasmoHelperV1
             LoadAllGhostsInTexbox();
         }
 
-        private void DisplayGhostInfo(string highlightedGhost)
-        {
-        }
+
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -350,6 +345,38 @@ namespace BBI_PhasmoHelperV1
             consoleTextBox.AppendText(text + Environment.NewLine);
         }
 
+        private void ResetGhostInfoGUI()
+        {
+            ghostNameLBL.Text = "Ghost name";
+            e1LBL.Text = "E1";
+            e2LBL.Text = "E2";
+            e3LBL.Text = "E3";
+            strengthsTB.Text = "Strengths:";
+            weaknessTB.Text = "Weaknesses:";
+            abilityTB.Text = "Ability:";
+            noteTB.Text = "Note:";
+        }
+
+        /// <summary>
+        /// here the displaying of the selected ghost's info will be done, it will show up in the ghostinfo group
+        /// </summary>
+        /// <param name="highlightedGhost"></param>
+        private void DisplayGhostInfo(Ghost highlightedGhost)
+        {
+            //first reset/add the template text
+            ResetGhostInfoGUI();
+
+            //add the ghost's info into all the different lbls and textboxes
+            ghostNameLBL.Text = highlightedGhost.Name;
+            e1LBL.Text = highlightedGhost.Evidence[0];
+            e2LBL.Text = highlightedGhost.Evidence[1];
+            e3LBL.Text = highlightedGhost.Evidence[2];
+            strengthsTB.Text = "Strengths: " + highlightedGhost.Strengths;
+            weaknessTB.Text = "Weaknesses: " + highlightedGhost.Weaknesses;
+            abilityTB.Text = "Ability: " + highlightedGhost.Ability;
+            noteTB.Text = "Note: " + highlightedGhost.Note;
+        }
+
         private void mainForm_KeyDown(object sender, KeyEventArgs e) // not used yet
         {
             if (e.KeyCode == Keys.Enter)
@@ -367,6 +394,48 @@ namespace BBI_PhasmoHelperV1
                 WriteToConsole("Left pressed");
                 //handle the left key and commands
             }
+        }
+
+        private void NextGhost(object sender, EventArgs e)
+        {
+            if (ghosts.Count > 0)
+            {
+                if (currentGhostIndex < ghosts.Count - 1)
+                {
+                    currentGhostIndex++;
+                }
+                else
+                {
+                    currentGhostIndex = 0;
+                }
+                DisplayGhostInfo(ghosts[currentGhostIndex]);
+            }
+        }
+
+        private void PreviousGhost(object sender, EventArgs e)
+        {
+            if (ghosts.Count > 0)
+            {
+                if (currentGhostIndex > 0)
+                {
+                    currentGhostIndex--;
+                }
+                else
+                {
+                    currentGhostIndex = ghosts.Count - 1;
+                }
+                DisplayGhostInfo(ghosts[currentGhostIndex]);
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExtraGB_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
