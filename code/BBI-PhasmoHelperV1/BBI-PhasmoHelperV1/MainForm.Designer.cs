@@ -37,9 +37,8 @@
             this.evidenceMarkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pingServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.ghostsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripPassTB = new System.Windows.Forms.ToolStripTextBox();
@@ -81,8 +80,10 @@
             this.dotsBtn = new System.Windows.Forms.Button();
             this.emfBtn = new System.Windows.Forms.Button();
             this.remainingGhostsTB = new System.Windows.Forms.TextBox();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pingServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.GhostInfoGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rightArrowPB)).BeginInit();
@@ -158,23 +159,19 @@
             this.serverToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.serverToolStripMenuItem.Text = "Server";
             // 
-            // pingServerToolStripMenuItem
+            // toolStripTextBox1
             // 
-            this.pingServerToolStripMenuItem.Name = "pingServerToolStripMenuItem";
-            this.pingServerToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
-            this.pingServerToolStripMenuItem.Text = "Server settings";
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(200, 47);
+            this.toolStripTextBox1.Text = "172.20.192.1";
             // 
-            // infoToolStripMenuItem
+            // toolStripTextBox2
             // 
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
-            this.infoToolStripMenuItem.Text = "connect";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
-            this.loadToolStripMenuItem.Text = "Load";
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(200, 47);
+            this.toolStripTextBox2.Text = "8080";
             // 
             // ghostsToolStripMenuItem
             // 
@@ -212,7 +209,7 @@
             this.serverToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sorryNogNietKlaarToolStripMenuItem});
             this.serverToolStripMenuItem1.Name = "serverToolStripMenuItem1";
-            this.serverToolStripMenuItem1.Size = new System.Drawing.Size(448, 54);
+            this.serverToolStripMenuItem1.Size = new System.Drawing.Size(266, 54);
             this.serverToolStripMenuItem1.Text = "Server";
             // 
             // sorryNogNietKlaarToolStripMenuItem
@@ -676,17 +673,33 @@
             this.remainingGhostsTB.Size = new System.Drawing.Size(797, 461);
             this.remainingGhostsTB.TabIndex = 32;
             // 
-            // toolStripTextBox1
+            // infoToolStripMenuItem
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 47);
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.infoToolStripMenuItem.Text = "connect";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
-            // toolStripTextBox2
+            // loadToolStripMenuItem
             // 
-            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 47);
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.loadToolStripMenuItem.Text = "Load";
+            // 
+            // pingServerToolStripMenuItem
+            // 
+            this.pingServerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pingToolStripMenuItem});
+            this.pingServerToolStripMenuItem.Name = "pingServerToolStripMenuItem";
+            this.pingServerToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.pingServerToolStripMenuItem.Text = "Server settings";
+            // 
+            // pingToolStripMenuItem
+            // 
+            this.pingToolStripMenuItem.Name = "pingToolStripMenuItem";
+            this.pingToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.pingToolStripMenuItem.Text = "Ping";
+            this.pingToolStripMenuItem.Click += new System.EventHandler(this.pingToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -734,9 +747,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pingServerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ghostsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
@@ -783,5 +793,9 @@
         private System.Windows.Forms.TextBox remainingGhostsTB;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripMenuItem pingServerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pingToolStripMenuItem;
     }
 }

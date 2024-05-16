@@ -57,6 +57,7 @@ namespace BBI_PhasmoHelperV1
             helpText = preWord + versionText + helpText;
             Reset();
             ButtonList();
+            WriteToConsole("Welcome to the BBI International Phasmophobia Helper");
         }
 
         void Reset()
@@ -436,6 +437,39 @@ namespace BBI_PhasmoHelperV1
 
         private void ExtraGB_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int port;
+            if (int.TryParse(toolStripTextBox2.Text, out port))
+            {
+                server = new Server(toolStripTextBox1.Text, port, "test");
+            }
+            else
+            {
+                MessageBox.Show("Server setup went wrong, bel Aldin ERRNO 0x45");
+            }
+        }
+        private void pingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WriteToConsole("Sending ping to server");
+
+            // Create a new server instance
+            Server server = new Server("172.20.194.73", 8080, "MyServer");
+
+            // Connect to the server
+            server.Connect();
+
+            // Send a command to the server
+            server.SendCommand(0x01, "PING");
+
+            // Receive a response from the server
+            string response = server.ReceiveResponse();
+
+            // Print the response
+            WriteToConsole("Received response: " + response);
 
         }
     }
