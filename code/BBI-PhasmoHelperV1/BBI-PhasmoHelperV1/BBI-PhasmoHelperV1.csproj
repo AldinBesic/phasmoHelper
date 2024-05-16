@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButtonHandler.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="Evidence.cs" />
     <Compile Include="ChangeGhostForm.cs">
       <SubType>Form</SubType>
@@ -63,6 +64,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PassTest.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="StartUpMenu.cs">
       <SubType>Form</SubType>
     </Compile>

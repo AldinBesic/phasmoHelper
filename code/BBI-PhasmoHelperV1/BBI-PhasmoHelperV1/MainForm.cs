@@ -47,6 +47,7 @@ namespace BBI_PhasmoHelperV1
         bool turnsOffBreaker = true;
         bool turnsOnLights = true;
         int currentGhostIndex = 0;
+        Server server;
         #endregion
 
 

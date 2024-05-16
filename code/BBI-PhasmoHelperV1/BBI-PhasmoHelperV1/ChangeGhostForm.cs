@@ -206,7 +206,7 @@ namespace BBI_PhasmoHelperV1
             // Get the runningDirectory of the exe
             string directory = AppDomain.CurrentDomain.BaseDirectory;
 
-            // Check if the relay runningDirectory already exists in the same runningDirectory as the exe
+            // Check if the server runningDirectory already exists in the same runningDirectory as the exe
             string ghostsDirectory = Path.Combine(directory, "Ghosts");
 
             // Check if the file exists
